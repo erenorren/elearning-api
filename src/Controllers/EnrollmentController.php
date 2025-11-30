@@ -1,5 +1,5 @@
 <?php
-// src/Controllers/EnrollmentController
+// src/Controllers/EnrollmentController.php
 declare(strict_types=1);
 
 namespace App\Controllers;
