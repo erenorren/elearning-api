@@ -1,4 +1,3 @@
--- db_fixed.sql
 CREATE DATABASE IF NOT EXISTS elearning_db;
 USE elearning_db;
 
