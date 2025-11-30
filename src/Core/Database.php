@@ -9,15 +9,15 @@ class Database
 {
     private static ?PDO $instance = null;
 
-    private function __construct() {}     // cegah instansiasi langsung
-    private function __clone() {}         // cegah clone
-    private function __wakeup() {}        // cegah unserialize
+    private function __construct() {}
+    private function __clone() {}
+
+    // __wakeup() DIHAPUS agar tidak warn
 
     public static function getConnection(): PDO
     {
         if (self::$instance === null) {
 
-            // ambil config database
             $db = require __DIR__ . '/../../config/database.php';
 
             $dsn = "mysql:host={$db['host']};"
@@ -33,11 +33,9 @@ class Database
                     [
                         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                        PDO::ATTR_PERSISTENT         => false
                     ]
                 );
             } catch (PDOException $e) {
-                // PDF instructs: throw exception (biar error cepat terlihat)
                 throw new PDOException("Database connection failed: " . $e->getMessage());
             }
         }
