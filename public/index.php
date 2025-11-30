@@ -1,5 +1,6 @@
 <?php
-require __DIR__ . "/src/Core/Database.php";
+
+require __DIR__ . '/../src/Core/Database.php';
 
 use Core\Database;
 
